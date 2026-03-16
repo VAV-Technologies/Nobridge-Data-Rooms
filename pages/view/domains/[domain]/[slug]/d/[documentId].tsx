@@ -76,7 +76,7 @@ export default function DataroomDocumentViewPage({
     // Retrieve token from cookie on component mount
     const cookieToken =
       Cookies.get("pm_vft") || Cookies.get(`pm_drs_flag_${router.query.slug}`);
-    const storedEmail = window.localStorage.getItem("papermark.email");
+    const storedEmail = window.localStorage.getItem("nobridge.email");
     if (cookieToken) {
       setStoredToken(cookieToken);
       if (storedEmail) {
@@ -121,7 +121,7 @@ export default function DataroomDocumentViewPage({
           enableBranding={meta.enableCustomMetatag ?? false}
           title={
             meta.metaTitle ??
-            `${link?.dataroomDocument?.document?.name} | Powered by Papermark`
+            `${link?.dataroomDocument?.document?.name} | Powered by Nobridge`
           }
           description={meta.metaDescription ?? null}
           imageUrl={meta.metaImage ?? null}
@@ -166,7 +166,7 @@ export default function DataroomDocumentViewPage({
         enableBranding={meta.enableCustomMetatag ?? false}
         title={
           meta.metaTitle ??
-          `${link?.dataroomDocument?.document?.name} | Powered by Papermark`
+          `${link?.dataroomDocument?.document?.name} | Powered by Nobridge`
         }
         description={meta.metaDescription ?? null}
         imageUrl={meta.metaImage ?? null}

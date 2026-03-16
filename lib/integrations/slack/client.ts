@@ -17,7 +17,7 @@ export class SlackClient {
     this.clientSecret = process.env.SLACK_CLIENT_SECRET as string;
 
     if (!this.clientId || !this.clientSecret) {
-      throw new Error("SLACK_CLIENT_ID and SLACK_CLIENT_SECRET must be set");
+      console.warn("SLACK_CLIENT_ID and SLACK_CLIENT_SECRET are not set. Slack integration disabled.");
     }
   }
 

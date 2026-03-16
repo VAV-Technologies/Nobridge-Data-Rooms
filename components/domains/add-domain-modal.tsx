@@ -65,7 +65,7 @@ const STATUS_CONFIG: Record<
   },
   "has site": {
     suffix:
-      "is currently pointing to an existing website. Only proceed if you're sure you want to use this domain for Papermark links.",
+      "is currently pointing to an existing website. Only proceed if you're sure you want to use this domain for Nobridge links.",
     icon: InfoIcon,
     className: "bg-blue-100 text-blue-800",
   },
@@ -139,9 +139,9 @@ export function AddDomainModal({
       return;
     }
 
-    if (debouncedDomain.includes("papermark")) {
+    if (debouncedDomain.includes("nobridge")) {
       setDomainStatus("invalid");
-      setStatusMessageOverride("Domain cannot contain 'papermark'.");
+      setStatusMessageOverride("Domain cannot contain 'nobridge'.");
       return;
     }
 
@@ -201,8 +201,8 @@ export function AddDomainModal({
       return toast.error("Please enter a valid domain (e.g., example.com).");
     }
 
-    if (normalizedDomain.includes("papermark")) {
-      return toast.error("Domain cannot contain 'papermark'.");
+    if (normalizedDomain.includes("nobridge")) {
+      return toast.error("Domain cannot contain 'nobridge'.");
     }
 
     if (saveDisabled) {

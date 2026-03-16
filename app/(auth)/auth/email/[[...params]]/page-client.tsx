@@ -115,10 +115,10 @@ export default function EmailVerificationClient() {
         <div className="flex w-full justify-center bg-gray-50 md:w-1/2 lg:w-1/2">
           <div className="z-10 mx-5 mt-[calc(1vh)] h-fit w-full max-w-md overflow-hidden rounded-lg sm:mx-0 sm:mt-[calc(2vh)] md:mt-[calc(3vh)]">
             <div className="items-left flex flex-col space-y-3 px-4 py-6 pt-8 sm:px-12">
-              <Link href="https://www.papermark.com" target="_blank">
+              <Link href="https://www.nobridge.co" target="_blank">
                 <img
-                  src="/_static/papermark-logo.svg"
-                  alt="Papermark Logo"
+                  src="/_static/nobridge-logo.svg"
+                  alt="Nobridge Logo"
                   className="-mt-8 mb-36 h-7 w-auto self-start sm:mb-32 md:mb-48"
                 />
               </Link>
@@ -153,10 +153,10 @@ export default function EmailVerificationClient() {
         ></div>
         <div className="z-10 mx-5 mt-[calc(1vh)] h-fit w-full max-w-md overflow-hidden rounded-lg sm:mx-0 sm:mt-[calc(2vh)] md:mt-[calc(3vh)]">
           <div className="items-left flex flex-col space-y-3 px-4 py-6 pt-8 sm:px-12">
-            <Link href="https://www.papermark.com" target="_blank">
+            <Link href="https://www.nobridge.co" target="_blank">
               <img
-                src="/_static/papermark-logo.svg"
-                alt="Papermark Logo"
+                src="/_static/nobridge-logo.svg"
+                alt="Nobridge Logo"
                 className="-mt-8 mb-36 h-7 w-auto self-start sm:mb-32 md:mb-48"
               />
             </Link>
@@ -187,10 +187,10 @@ export default function EmailVerificationClient() {
               <p className="mt-2 text-sm text-orange-800">
                 Check your junk/spam and quarantine folders and ensure that{" "}
                 <a
-                  href="mailto:system@papermark.com"
+                  href="mailto:system@nobridge.co"
                   className="font-medium text-orange-600 underline hover:text-orange-700"
                 >
-                  system@papermark.com
+                  system@nobridge.co
                 </a>{" "}
                 is on your allowed senders list.
               </p>
@@ -262,7 +262,7 @@ export default function EmailVerificationClient() {
 
           <p className="mt-10 w-full max-w-md px-4 text-xs text-muted-foreground sm:px-12">
             By clicking continue, you acknowledge that you have read and agree
-            to Papermark&apos;s{" "}
+            to Nobridge&apos;s{" "}
             <a
               href={`${process.env.NEXT_PUBLIC_MARKETING_URL}/terms`}
               target="_blank"
@@ -312,7 +312,7 @@ function TestimonialSection() {
             <div className="max-w-xl text-center">
               <blockquote className="text-balance font-normal leading-8 text-white sm:text-xl sm:leading-9">
                 <p>
-                  &quot;We raised our €30M Fund with Papermark Data Rooms. Love
+                  &quot;We raised our €30M Fund with Nobridge Data Rooms. Love
                   the customization, security and ease of use.&quot;
                 </p>
               </blockquote>

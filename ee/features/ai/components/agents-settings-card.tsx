@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import { CheckCircle, Loader2, XCircle } from "lucide-react";
 
-import PapermarkSparkle from "@/components/shared/icons/papermark-sparkle";
+import NobridgeSparkle from "@/components/shared/icons/nobridge-sparkle";
 import { toast } from "sonner";
 import { mutate } from "swr";
 
@@ -184,7 +184,7 @@ export function AgentsSettingsCard({
       <CardHeader>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <PapermarkSparkle className="h-5 w-5 text-primary" />
+            <NobridgeSparkle className="h-5 w-5 text-primary" />
             <CardTitle>AI Agents</CardTitle>
           </div>
           <span

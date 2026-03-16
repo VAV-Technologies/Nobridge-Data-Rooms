@@ -6,7 +6,7 @@ import { resend } from "@/lib/resend";
 import { log } from "@/lib/utils";
 import { generateUnsubscribeUrl } from "@/lib/utils/unsubscribe";
 
-import YearInReviewEmail from "@/components/emails/year-in-review-papermark";
+import YearInReviewEmail from "@/components/emails/year-in-review-nobridge";
 
 const BATCH_SIZE = 100; // Maximum number of emails Resend supports in one batch
 const MAX_ATTEMPTS = 3;
@@ -145,9 +145,9 @@ export async function processEmailQueue() {
 
                   return {
                     email: {
-                      from: "Papermark <system@papermark.com>",
+                      from: "Nobridge <system@nobridge.co>",
                       to: userTeam.user.email || "delivered@resend.dev",
-                      subject: "2024 in Review: Your Year with Papermark",
+                      subject: "2024 in Review: Your Year with Nobridge",
                       react,
                       text: plainText,
                       headers: {

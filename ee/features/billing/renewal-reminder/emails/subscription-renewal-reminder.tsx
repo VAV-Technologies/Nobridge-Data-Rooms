@@ -25,18 +25,18 @@ const SubscriptionRenewalReminderEmail = ({
   return (
     <Html>
       <Head />
-      <Preview>Your Papermark subscription renews soon</Preview>
+      <Preview>Your Nobridge subscription renews soon</Preview>
       <Tailwind>
         <Body className="mx-auto my-auto bg-white font-sans text-sm">
           <Container className="mx-auto my-10 w-[465px] p-5">
             <Text className="mx-0 mb-8 mt-4 p-0 text-2xl font-normal">
-              <span className="font-bold tracking-tighter">Papermark</span>
+              <span className="font-bold tracking-tighter">Nobridge</span>
             </Text>
             <Text className="text-2xl font-bold">
               Is your payment information up to date?
             </Text>
             <Text>
-              Another year has come and gone, which means your annual Papermark
+              Another year has come and gone, which means your annual Nobridge
               subscription will automatically renew on {renewalDate}.
             </Text>
             <Text>
@@ -48,7 +48,7 @@ const SubscriptionRenewalReminderEmail = ({
               If you need to update your billing details or have any questions,
               please visit your{" "}
               <a
-                href="https://app.papermark.com/settings/billing"
+                href="https://room.nobridge.co/settings/billing"
                 className="underline"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -60,7 +60,7 @@ const SubscriptionRenewalReminderEmail = ({
             {isOldAccount ? (
               <>
                 <Hr />
-                <Text className="text-gray-400">Papermark Team</Text>
+                <Text className="text-gray-400">Nobridge Team</Text>
               </>
             ) : (
               <Footer />

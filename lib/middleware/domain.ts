@@ -19,7 +19,7 @@ export default async function DomainMiddleware(req: NextRequest) {
       }
     }
 
-    return NextResponse.redirect(new URL("https://www.papermark.com", req.url));
+    return NextResponse.redirect(new URL("https://www.nobridge.co", req.url));
   }
 
   const url = req.nextUrl.clone();
@@ -38,7 +38,7 @@ export default async function DomainMiddleware(req: NextRequest) {
     headers: {
       "X-Robots-Tag": "noindex",
       "X-Powered-By":
-        "Papermark - Secure Data Room Infrastructure for the modern web",
+        "Nobridge - Secure Data Room Infrastructure for the modern web",
     },
   });
 }

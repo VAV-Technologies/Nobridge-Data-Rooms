@@ -7,7 +7,7 @@ import type {
 import samlJackson from "@boxyhq/saml-jackson";
 import crypto from "crypto";
 
-export const samlAudience = "https://saml.papermark.com";
+export const samlAudience = "https://saml.nobridge.co";
 
 export { JACKSON_PRODUCT as jacksonProduct } from "@/ee/features/security/sso/product";
 
@@ -58,7 +58,7 @@ function getJacksonDbUrl(): string {
 
 function getJacksonOptions(): JacksonOption {
   return {
-    externalUrl: process.env.NEXTAUTH_URL || "https://app.papermark.com",
+    externalUrl: process.env.NEXTAUTH_URL || "https://room.nobridge.co",
     samlPath: "/api/auth/saml/callback",
     samlAudience,
     db: {

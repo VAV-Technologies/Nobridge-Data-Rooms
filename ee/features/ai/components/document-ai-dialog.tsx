@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import { ExternalLink, Shield } from "lucide-react";
 
-import PapermarkSparkle from "@/components/shared/icons/papermark-sparkle";
+import NobridgeSparkle from "@/components/shared/icons/nobridge-sparkle";
 import { toast } from "sonner";
 import { mutate } from "swr";
 
@@ -210,7 +210,7 @@ export function DocumentAIDialog({
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
-            <PapermarkSparkle className="h-5 w-5 text-primary" />
+            <NobridgeSparkle className="h-5 w-5 text-primary" />
             AI Agents
           </DialogTitle>
           <DialogDescription>

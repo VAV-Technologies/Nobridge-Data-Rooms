@@ -35,7 +35,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-import PapermarkSparkle from "../shared/icons/papermark-sparkle";
+import NobridgeSparkle from "../shared/icons/nobridge-sparkle";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -257,11 +257,11 @@ export default function Nav({
                 />
               ) : (
                 <Link
-                  href={`https://www.papermark.com?utm_campaign=navbar&utm_medium=navbar&utm_source=papermark-${linkId}`}
+                  href={`https://www.nobridge.co?utm_campaign=navbar&utm_medium=navbar&utm_source=nobridge-${linkId}`}
                   target="_blank"
                   className="text-2xl font-bold tracking-tighter text-white"
                 >
-                  Papermark
+                  Nobridge
                 </Link>
               )}
             </div>

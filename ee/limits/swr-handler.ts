@@ -34,8 +34,7 @@ export function useLimits() {
     : true;
   const canAddLinks = data?.links ? data?.usage?.links < data?.links : true;
   const canAddUsers = data?.users ? data?.usage?.users < data?.users : true;
-  const showUpgradePlanModal =
-    (isFree && !isTrial) || (isTrial && !canAddUsers);
+  const showUpgradePlanModal = false;
 
   return {
     showUpgradePlanModal,

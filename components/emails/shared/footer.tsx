@@ -18,17 +18,15 @@ export const Footer = ({
           Don&apos;t want to get these emails?{" "}
           <Link
             className="text-neutral-700 underline"
-            href="https://app.papermark.com/account/general"
+            href="https://room.nobridge.co/account/general"
           >
             Unsubscribe here.
           </Link>
         </Text>
         <Text className="text-[12px] text-neutral-500">
-          Papermark, Inc.
+          Nobridge (VAV Technologies)
           <br />
-          1111B S Governors Ave #28117
-          <br />
-          Dover, DE 19904
+          Southeast Asia
         </Text>
       </>
     );
@@ -39,13 +37,7 @@ export const Footer = ({
       <Hr />
       <Section className="text-gray-400">
         <Text className="text-xs">
-          © {new Date().getFullYear()} Papermark, Inc. All rights reserved.{" "}
-          {withAddress && (
-            <>
-              <br />
-              1111B S Governors Ave #28117, Dover, DE 19904
-            </>
-          )}
+          © {new Date().getFullYear()} Nobridge (VAV Technologies). All rights reserved.{" "}
         </Text>
         <Text className="text-xs">{footerText}</Text>
       </Section>

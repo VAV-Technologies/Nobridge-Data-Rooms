@@ -7,20 +7,20 @@ const inter = Inter({ subsets: ["latin"] });
 
 const data = {
   description:
-    "Papermark is an open-source document sharing infrastructure. Free alternative to Docsend with custom domain. Manage secure document sharing with real-time analytics.",
-  title: "Papermark | The Open Source DocSend Alternative",
+    "Nobridge Data Rooms — Secure M&A deal document sharing. Share CIMs, financials, teasers, and NDAs with real-time analytics and granular access controls.",
+  title: "Nobridge Data Rooms | Secure Document Sharing for M&A",
   url: "/",
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.papermark.com"),
+  metadataBase: new URL("https://room.nobridge.co"),
   title: data.title,
   description: data.description,
   openGraph: {
     title: data.title,
     description: data.description,
     url: data.url,
-    siteName: "Papermark",
+    siteName: "Nobridge",
     images: [
       {
         url: "/_static/meta-image.png",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: data.title,
     description: data.description,
-    creator: "@papermarkio",
+    creator: "@nobridgeio",
     images: ["/_static/meta-image.png"],
   },
 };

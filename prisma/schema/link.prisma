@@ -25,7 +25,7 @@ model Link {
   allowList                  String[] // Array of emails and domains allowed to view the document
   denyList                   String[] // Array of emails and domains denied to view the document
   emailProtected             Boolean    @default(true) // Optional email protection
-  emailAuthenticated         Boolean    @default(false) // Optional email authentication flag
+  emailAuthenticated         Boolean    @default(true) // Email authentication enabled by default
   allowDownload              Boolean?   @default(false) // Optional give user a option to allow to download the document
   isArchived                 Boolean    @default(false) // Indicates if the link is archived
   deletedAt                  DateTime? // Soft delete timestamp
@@ -38,13 +38,13 @@ model Link {
   enableNotification         Boolean?   @default(true) // Optional give user a option to pause/resume the notifications
   enableFeedback             Boolean?   @default(false) // Optional give user a option to enable the reactions toolbar
   enableQuestion             Boolean?   @default(false) // Optional give user a option to enable the question feedback
-  enableScreenshotProtection Boolean?   @default(false) // Optional give user a option to enable the screenshot protection
+  enableScreenshotProtection Boolean?   @default(true) // Screenshot protection enabled by default
   feedback                   Feedback?
   enableAgreement            Boolean?   @default(false) // Optional give user a option to enable the terms and conditions
   agreement                  Agreement? @relation(fields: [agreementId], references: [id], onDelete: SetNull)
   agreementId                String? // This can be nullable, representing links without agreements
   showBanner                 Boolean?   @default(false) // Optional give user a option to show the banner and end of document signup form
-  enableWatermark            Boolean?   @default(false) // Optional give user a option to enable the watermark
+  enableWatermark            Boolean?   @default(true) // Watermark enabled by default
   watermarkConfig            Json? // This will store the watermark configuration: {text: "Confidential", isTiled: false, color: "#000000", fontSize: 12, opacity: 0.5, rotation: 30, position: "top-right"}
 
   // group links
@@ -146,7 +146,7 @@ model LinkPreset {
   enableCustomFields Boolean? @default(false)
   customFields       Json? //[{type: "SHORT_TEXT", identifier: "name", label: "Name", required: true}]
 
-  showBanner Boolean? @default(false) // Optional give user a option to show the "Powered by Papermark" banner
+  showBanner Boolean? @default(false) // Optional give user a option to show the "Powered by Nobridge" banner
 
   welcomeMessage String? // Custom welcome message for links created from this preset
 

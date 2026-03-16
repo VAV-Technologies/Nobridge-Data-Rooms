@@ -20,19 +20,19 @@ export const runtime = "nodejs";
 
 const data = {
   description: "Confirm email change",
-  title: "Confirm email change | Papermark",
+  title: "Confirm email change | Nobridge",
   url: "/auth/confirm-email-change",
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.papermark.com"),
+  metadataBase: new URL("https://www.nobridge.co"),
   title: data.title,
   description: data.description,
   openGraph: {
     title: data.title,
     description: data.description,
     url: data.url,
-    siteName: "Papermark",
+    siteName: "Nobridge",
     images: [
       {
         url: "/_static/meta-image.png",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: data.title,
     description: data.description,
-    creator: "@papermarkio",
+    creator: "@nobridgeio",
     images: ["/_static/meta-image.png"],
   },
 };

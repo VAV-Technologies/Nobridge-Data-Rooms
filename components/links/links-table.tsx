@@ -113,7 +113,7 @@ const getDisplayUrl = (link: LinkWithViews) => {
   if (link.domainId) {
     return `${link.domainSlug}/${link.slug}`;
   }
-  return `papermark.com/view/${link.id}`;
+  return `nobridge.co/view/${link.id}`;
 };
 
 // Link URL cell component - displays URL with click-to-copy hover overlay
@@ -771,7 +771,7 @@ export default function LinksTable({
   );
 
   // Collapsible state for "All Links" section (document pages only)
-  const ALL_LINKS_COLLAPSED_KEY = "papermark-all-links-collapsed";
+  const ALL_LINKS_COLLAPSED_KEY = "nobridge-all-links-collapsed";
   const [isAllLinksOpen, setIsAllLinksOpen] = useState<boolean>(true);
 
   // Load collapse state from localStorage on mount

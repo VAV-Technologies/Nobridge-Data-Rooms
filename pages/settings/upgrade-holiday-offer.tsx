@@ -784,12 +784,12 @@ export default function UpgradeHolidayOfferPage() {
           analytics.
         </p>
         <a
-          href="https://cal.com/marcseitz/papermark"
+          href="https://cal.com/marcseitz/nobridge"
           target="_blank"
           rel="noopener noreferrer"
           className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
         >
-          Looking for Papermark Enterprise?
+          Looking for Nobridge Enterprise?
         </a>
       </div>
     </div>

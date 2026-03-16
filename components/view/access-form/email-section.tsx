@@ -38,7 +38,7 @@ export default function EmailSection({
 
   useEffect(() => {
     // Load email from localStorage when the component mounts
-    const storedEmail = window.localStorage.getItem("papermark.email");
+    const storedEmail = window.localStorage.getItem("nobridge.email");
     if (storedEmail) {
       setData((prevData) => ({
         ...prevData,
@@ -75,7 +75,7 @@ export default function EmailSection({
     // Update the state
     setData({ ...data, email: newEmail });
     // Store in localStorage
-    window.localStorage.setItem("papermark.email", newEmail);
+    window.localStorage.setItem("nobridge.email", newEmail);
 
     // Optional: Clear error if input becomes valid
     if (e.target.validity.valid) {

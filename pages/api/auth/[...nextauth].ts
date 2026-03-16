@@ -28,7 +28,7 @@ function getMainDomainUrl(): string {
   if (process.env.NODE_ENV === "development") {
     return process.env.NEXTAUTH_URL || "http://localhost:3000";
   }
-  return process.env.NEXTAUTH_URL || "https://app.papermark.com";
+  return process.env.NEXTAUTH_URL || "https://room.nobridge.co";
 }
 
 // This function can run for a maximum of 180 seconds
@@ -97,14 +97,18 @@ export const authOptions: NextAuthOptions = {
         }
       },
     }),
-    PasskeyProvider({
-      tenant: hanko,
-      async authorize({ userId }) {
-        const user = await prisma.user.findUnique({ where: { id: userId } });
-        if (!user) return null;
-        return user;
-      },
-    }),
+    ...(hanko
+      ? [
+          PasskeyProvider({
+            tenant: hanko,
+            async authorize({ userId }) {
+              const user = await prisma.user.findUnique({ where: { id: userId } });
+              if (!user) return null;
+              return user;
+            },
+          }),
+        ]
+      : []),
     // ─── SP-Initiated SAML SSO (OAuth flow with PKCE + state) ───
     // Used when user clicks "Continue with SSO" on the login page.
     // NextAuth handles PKCE and state validation automatically.
@@ -202,7 +206,7 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   adapter: PrismaAdapter(prisma),
-  session: { strategy: "jwt" },
+  session: { strategy: "jwt", maxAge: 24 * 60 * 60 },
   cookies: {
     sessionToken: {
       name: `${VERCEL_DEPLOYMENT ? "__Secure-" : ""}next-auth.session-token`,
@@ -210,7 +214,7 @@ export const authOptions: NextAuthOptions = {
         httpOnly: true,
         sameSite: "lax",
         path: "/",
-        domain: VERCEL_DEPLOYMENT ? ".papermark.com" : undefined,
+        domain: VERCEL_DEPLOYMENT ? ".nobridge.co" : undefined,
         secure: VERCEL_DEPLOYMENT,
       },
     },

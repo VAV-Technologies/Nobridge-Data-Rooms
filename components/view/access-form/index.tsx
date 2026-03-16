@@ -215,13 +215,13 @@ export default function AccessForm({
           >
             This document is securely shared with you using{" "}
             <a
-              href="https://www.papermark.com"
+              href="https://www.nobridge.co"
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium"
               style={{ color: accessFormTheme.mutedTextColor }}
             >
-              Papermark
+              Nobridge
             </a>
             .
           </p>

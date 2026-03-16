@@ -27,12 +27,6 @@ const nextConfig = {
         ],
       },
       {
-        // temporary redirect set on 2025-10-22
-        source: "/view/cmdn06aw00001ju04jgsf8h4f",
-        destination: "/view/cmh0uiv6t001mjm04sk10ecc8",
-        permanent: false,
-      },
-      {
         source: "/settings",
         destination: "/settings/general",
         permanent: false,
@@ -57,7 +51,15 @@ const nextConfig = {
           },
           {
             key: "X-Frame-Options",
-            value: "SAMEORIGIN",
+            value: "DENY",
+          },
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains; preload",
+          },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
           },
           {
             key: "Report-To",
@@ -68,7 +70,7 @@ const nextConfig = {
             }),
           },
           {
-            key: "Content-Security-Policy-Report-Only",
+            key: "Content-Security-Policy",
             value:
               `default-src 'self' https: ${isDev ? "http:" : ""}; ` +
               `script-src 'self' 'unsafe-inline' 'unsafe-eval' https: ${isDev ? "http:" : ""}; ` +
@@ -128,21 +130,25 @@ const nextConfig = {
           },
         ],
       },
-      {
-        source: "/services/:path*",
-        has: [
-          {
-            type: "host",
-            value: process.env.NEXT_PUBLIC_WEBHOOK_BASE_HOST,
-          },
-        ],
-        headers: [
-          {
-            key: "X-Robots-Tag",
-            value: "noindex",
-          },
-        ],
-      },
+      ...(process.env.NEXT_PUBLIC_WEBHOOK_BASE_HOST
+        ? [
+            {
+              source: "/services/:path*",
+              has: [
+                {
+                  type: "host",
+                  value: process.env.NEXT_PUBLIC_WEBHOOK_BASE_HOST,
+                },
+              ],
+              headers: [
+                {
+                  key: "X-Robots-Tag",
+                  value: "noindex",
+                },
+              ],
+            },
+          ]
+        : []),
       {
         source: "/api/webhooks/services/:path*",
         headers: [
@@ -207,27 +213,12 @@ const nextConfig = {
 
 function prepareRemotePatterns() {
   let patterns = [
-    // static images and videos
-    { protocol: "https", hostname: "assets.papermark.io" },
-    { protocol: "https", hostname: "cdn.papermarkassets.com" },
-    { protocol: "https", hostname: "d2kgph70pw5d9n.cloudfront.net" },
-    // twitter img
-    { protocol: "https", hostname: "pbs.twimg.com" },
-    // linkedin img
-    { protocol: "https", hostname: "media.licdn.com" },
-    // google img
+    // google profile images
     { protocol: "https", hostname: "lh3.googleusercontent.com" },
-    // papermark img
-    { protocol: "https", hostname: "www.papermark.io" },
-    { protocol: "https", hostname: "app.papermark.io" },
-    { protocol: "https", hostname: "www.papermark.com" },
-    { protocol: "https", hostname: "app.papermark.com" },
     // useragent img
     { protocol: "https", hostname: "faisalman.github.io" },
-    // special document pages
-    { protocol: "https", hostname: "d36r2enbzam0iu.cloudfront.net" },
-    // us special storage
-    { protocol: "https", hostname: "d35vw2hoyyl88.cloudfront.net" },
+    // nobridge assets
+    { protocol: "https", hostname: "room.nobridge.co" },
   ];
 
   // Default region patterns
@@ -260,24 +251,11 @@ function prepareRemotePatterns() {
     });
   }
 
-  if (process.env.VERCEL_ENV === "production") {
-    patterns.push({
-      // production vercel blob
-      protocol: "https",
-      hostname: "yoywvlh29jppecbh.public.blob.vercel-storage.com",
-    });
-  }
-
-  if (
-    process.env.VERCEL_ENV === "preview" ||
-    process.env.NODE_ENV === "development"
-  ) {
-    patterns.push({
-      // staging vercel blob
-      protocol: "https",
-      hostname: "36so9a8uzykxknsu.public.blob.vercel-storage.com",
-    });
-  }
+  // Allow all Vercel Blob storage hostnames
+  patterns.push({
+    protocol: "https",
+    hostname: "*.public.blob.vercel-storage.com",
+  });
 
   return patterns;
 }

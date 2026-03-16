@@ -40,6 +40,9 @@ export default async function webhookHandler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
+  // Billing disabled for self-hosted deployment
+  return res.status(200).json({ message: "Billing disabled" });
+
   // POST /api/stripe/webhook – listen to Stripe webhooks
   if (req.method === "POST") {
     const buf = await buffer(req);
@@ -49,7 +52,7 @@ export default async function webhookHandler(
     try {
       if (!sig || !webhookSecret) return;
       const stripe = stripeInstance();
-      event = stripe.webhooks.constructEvent(buf, sig, webhookSecret);
+      event = stripe.webhooks.constructEvent(buf, sig as string, webhookSecret as string);
     } catch (err: any) {
       return res.status(400).send(`Webhook Error: ${err.message}`);
     }

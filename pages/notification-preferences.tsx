@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { motion } from "motion/react";
 
-import PapermarkLogo from "@/public/_static/papermark-logo.svg";
+import NobridgeLogo from "@/public/_static/nobridge-logo.svg";
 
 import { Button } from "@/components/ui/button";
 
@@ -168,20 +168,20 @@ export default function NotificationPreferencesPage({
   return (
     <>
       <Head>
-        <title>Notification Preferences | Papermark</title>
+        <title>Notification Preferences | Nobridge</title>
       </Head>
       <div className="flex min-h-screen flex-col bg-gray-50">
         <header className="px-6 py-5">
           <a
-            href="https://www.papermark.com"
+            href="https://www.nobridge.co"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Image
-              src={PapermarkLogo}
+              src={NobridgeLogo}
               width={119}
               height={32}
-              alt="Papermark"
+              alt="Nobridge"
             />
           </a>
         </header>
@@ -321,12 +321,12 @@ export default function NotificationPreferencesPage({
             <p className="mt-4 text-center text-xs text-muted-foreground/60">
               Powered by{" "}
               <a
-                href="https://www.papermark.com"
+                href="https://www.nobridge.co"
                 className="underline underline-offset-2 transition-colors hover:text-muted-foreground"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Papermark
+                Nobridge
               </a>
             </p>
           </motion.div>

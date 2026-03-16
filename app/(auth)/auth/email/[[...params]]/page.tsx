@@ -3,20 +3,20 @@ import { Metadata } from "next";
 import EmailVerificationClient from "./page-client";
 
 const data = {
-  description: "Verify your login to Papermark",
-  title: "Verify Login | Papermark",
+  description: "Verify your login to Nobridge",
+  title: "Verify Login | Nobridge",
   url: "/auth/email",
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.papermark.com"),
+  metadataBase: new URL("https://www.nobridge.co"),
   title: data.title,
   description: data.description,
   openGraph: {
     title: data.title,
     description: data.description,
     url: data.url,
-    siteName: "Papermark",
+    siteName: "Nobridge",
     images: [
       {
         url: "/_static/meta-image.png",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: data.title,
     description: data.description,
-    creator: "@papermarkio",
+    creator: "@nobridgeio",
     images: ["/_static/meta-image.png"],
   },
 };
