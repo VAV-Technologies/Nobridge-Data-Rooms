@@ -1,9 +1,6 @@
 {
   "functions": {
-    "api/mupdf/convert-page.ts": {
-      "memory": 2048
-    },
-    "api/mupdf/annotate-document.ts": {
+    "pages/api/mupdf/*.ts": {
       "memory": 2048
     }
   }
