@@ -1,7 +1,1 @@
-{
-  "functions": {
-    "pages/api/mupdf/*.ts": {
-      "memory": 2048
-    }
-  }
-}
+{}
