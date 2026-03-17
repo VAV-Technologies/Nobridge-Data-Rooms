@@ -55,55 +55,19 @@ export default async function handle(
         return res.status(404).json({ error: "Team not found" });
       }
 
-      const isCustomer = !!team.stripeId;
-
-      // calculate the plan cycle either yearly or monthly based on the startsAt and endsAt dates
-      let subscriptionCycle = "monthly";
-      if (team?.startsAt && team?.endsAt) {
-        const durationInDays = Math.round(
-          (team.endsAt.getTime() - team.startsAt.getTime()) /
-            (1000 * 60 * 60 * 24),
-        );
-        // If duration is more than 31 days, consider it yearly
-        subscriptionCycle = durationInDays > 31 ? "yearly" : "monthly";
-      }
-
-      // Fetch discount information if team has an active subscription
-      let discount: SubscriptionDiscount | null = null;
-      if (
-        withDiscount &&
-        team?.subscriptionId &&
-        team.plan &&
-        team.plan !== "free" &&
-        team.pauseStartsAt === null
-      ) {
-        try {
-          const subscriptionData = await getSubscriptionItem(
-            team.subscriptionId,
-            isOldAccount(team.plan),
-          );
-          discount = subscriptionData.discount;
-        } catch (error) {
-          // If we can't fetch discount info, just log and continue without it
-          console.error("Failed to fetch discount information:", error);
-        }
-      }
-
-      // Calculate if team is currently paused
-      const isPaused = isTeamPaused(team);
-
+      // Override: always return premium plan
       return res.status(200).json({
-        plan: team.plan,
+        plan: "datarooms-premium",
         startsAt: team.startsAt,
         endsAt: team.endsAt,
-        isCustomer,
-        subscriptionCycle,
-        pausedAt: team.pausedAt,
-        pauseStartsAt: team.pauseStartsAt,
-        pauseEndsAt: team.pauseEndsAt,
-        isPaused,
-        cancelledAt: team.cancelledAt,
-        discount,
+        isCustomer: true,
+        subscriptionCycle: "yearly",
+        pausedAt: null,
+        pauseStartsAt: null,
+        pauseEndsAt: null,
+        isPaused: false,
+        cancelledAt: null,
+        discount: null,
       });
     } catch (error) {
       errorhandler(error, res);
