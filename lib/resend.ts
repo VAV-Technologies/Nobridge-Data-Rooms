@@ -45,15 +45,10 @@ export const sendEmail = async ({
   const html = await render(react);
   const plainText = toPlainText(html);
 
+  // TODO: switch to @nobridge.co once domain is verified in Resend
   const fromAddress =
     from ??
-    (marketing
-      ? "Nobridge <updates@nobridge.co>"
-      : system
-        ? "Nobridge <system@nobridge.co>"
-        : verify
-          ? "Nobridge <verify@nobridge.co>"
-          : "Nobridge <noreply@nobridge.co>");
+    "Nobridge <onboarding@resend.dev>";
 
   try {
     const { data, error } = await resend.emails.send({
