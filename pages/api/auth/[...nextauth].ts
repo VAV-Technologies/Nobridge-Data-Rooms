@@ -214,7 +214,7 @@ export const authOptions: NextAuthOptions = {
         httpOnly: true,
         sameSite: "lax",
         path: "/",
-        domain: VERCEL_DEPLOYMENT ? ".nobridge.co" : undefined,
+        domain: undefined, // TODO: set to ".nobridge.co" once DNS is active
         secure: VERCEL_DEPLOYMENT,
       },
     },
